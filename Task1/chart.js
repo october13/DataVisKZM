@@ -5,6 +5,7 @@ async function buildPlot() {
     const dateParser = d3.timeParse("%Y-%m-%d");
     const yAccessor = (d) => d.temperatureMin;
     const xAccessor = (d) => dateParser(d.date);
+    const yAccessor_2 = (d) => d.temperatureHigh;
     // Функции для инкапсуляции доступа к колонкам набора данных
 
     var dimension = {
@@ -12,7 +13,7 @@ async function buildPlot() {
         height: 400,
         margin: {
             top: 15,
-            left: 15,
+            left: 0,
             bottom: 15,
             right: 15
         }
@@ -42,9 +43,29 @@ async function buildPlot() {
 
     bounded.append("path")
         .attr("d",lineGenerator(data))
-        // .attr("fill","none")
-        .attr("stroke","lightgrey")
+        .attr("fill","none")
+        .attr("stroke","grey")
+
+    const yScaler_y = d3.scaleLinear()
+        .domain(d3.extent(data, yAccessor_2))
+        .range([dimension.boundedHeight, 0])
+    var lineGenerator_2 = d3.line()
+        .x(d => xScaler(xAccessor(d)))
+        .y(d => yScaler_y(yAccessor_2(d)));
+    bounded.append("path")
+        .attr("d",lineGenerator_2(data))
+        .attr("fill","none")
+        .attr("stroke","blue")
+
+    var x_axis = d3.axisBottom().scale(xScaler)
+    var xAxisTranslate = dimension.boundedHeight;
+    bounded.append('g')
+        .attr("transform", "translate(0, " + xAxisTranslate + ")")
+        .call(x_axis)
+    var y_axis = d3.axisRight().scale(yScaler);
+    bounded.append('g')
+        .attr("transform", "translate(0,0)")
+        .call(y_axis)
 
 }
-
 buildPlot();
