@@ -49,11 +49,11 @@ async function buildPlot() {
     const yScaler_y = d3.scaleLinear()
         .domain(d3.extent(data, yAccessor_2))
         .range([dimension.boundedHeight, 0])
-    var lineGenerator_2 = d3.line()
+    var lineGenerator_b = d3.line()
         .x(d => xScaler(xAccessor(d)))
         .y(d => yScaler_y(yAccessor_2(d)));
     bounded.append("path")
-        .attr("d",lineGenerator_2(data))
+        .attr("d",lineGenerator_b(data))
         .attr("fill","none")
         .attr("stroke","blue")
 
