@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Network</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js" integrity="sha512-MefNfAGJ/pEy89xLOFs3V6pYPs6AmUhXJrRlydI/9wZuGrqxmrdQ80zKHUcyadAcpH67teDZcBeS6oMJLPtTqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="graph.js"></script>
+  <link rel="stylesheet" href="network.css">
+</head>
+<style>
+  .node-text {
+    width: 50px;
+    height: 16px;
+  }
+  .node-text body {
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .node-text span {
+    width: fit-content;
+    height: fit-content;
+    font-size: 14px;
+    text-anchor: middle;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+  .tip {
+    position: fixed;
+    color: black;
+    top: 0;
+    pointer-events: none;
+  }
+</style>
+<body>
+<div id="wrapper">
+</div>
+<p class="tip">click to select node. press ctrl and click on another node to create link<br>
+  press alt and click on link to delete link<br>
+  click on node label to edit label (might need to click twice - d3's fault)
+</p>
+</body>
+</html>
