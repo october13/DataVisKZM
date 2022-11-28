@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 10</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="umap-js.min.js"></script>
+    <script defer src="d3.min.js"></script>
+    <script defer src="tsne.min.js"></script>
+    <script defer src="graph.js"></script>
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <div class="spinner-wrapper">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="graph" id="tsne-wrapper">
+      <div class="graph-label">
+        <h2>TSNE</h2>
+        <div class="graph-legend">
+          <span class="dot dot--red"></span>
+          <span class="legend-label">Iris-setosa</span>
+          <span class="dot dot--green"></span>
+          <span class="legend-label">Iris-versicolor</span>
+          <span class="dot dot--blue"></span>
+          <span class="legend-label">Iris-virginica</span>
+        </div>
+      </div>
+    </div>
+    <div class="graph" id="umap-wrapper">
+      <div class="graph-label">
+        <h2>UMAP</h2>
+        <div class="graph-legend">
+          <span class="dot dot--red"></span>
+          <span class="legend-label">Iris-setosa</span>
+          <span class="dot dot--green"></span>
+          <span class="legend-label">Iris-versicolor</span>
+          <span class="dot dot--blue"></span>
+          <span class="legend-label">Iris-virginica</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
